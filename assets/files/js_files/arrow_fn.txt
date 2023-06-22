@@ -1,0 +1,21 @@
+// ================= Arrow Functions ===================
+
+
+// ---- Before ES6 We use  functions like this -------
+//---- Normal function ---
+function age() {
+    console.log("12");
+}
+age();
+
+const name_1 = function (title) {
+    console.log("Sam "+title);
+}
+name_1("markand")
+
+// --------- After Es6  Arrow Functions -----------
+const name_2 = (title) => {
+    console.log("Smith "+title);
+}
+
+name_2("Henry")

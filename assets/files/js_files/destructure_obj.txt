@@ -1,0 +1,37 @@
+// ^ ==================== Destructuring Objects [ES6]=====================
+
+let userObj = {
+    name:"Sam",
+    age:12,
+}
+let {name,age} = userObj; // Here variable name should be match with Object Key's name;
+
+console.log(age);
+
+console.log("----------------------------------");
+
+// ^ --------- Taking variable name as Alice Name -------
+let userObj_2 = {
+    name:"Sam",
+    age:12,
+}
+let {name:n,age:a} = userObj_2;
+console.log(n);
+console.log(a);
+
+console.log("----------------------------------");
+
+// ^ ----- Using Rest Opt ----------
+
+let usrObj =  {
+    fname:"Sam",
+    age:15,
+    add:"ABC road",
+    ph:"122323"
+}
+
+let {fname,...otherDetails} = usrObj;
+
+console.log(fname, otherDetails);
+
+console.log("----------------------------------");

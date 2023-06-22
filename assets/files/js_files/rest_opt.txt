@@ -1,0 +1,86 @@
+// ^ ===================== REST OPERATOR =====================
+// * ==> !Rest Oparetor works on method declearation;
+// * Rest Oparetor takes multiplesingle values and create an array;
+// * Rest Opt convert Multiple Arguments into a  array;
+
+//! --------- Before Rest Operator There is a Problem -------
+
+
+// Here Only Get Two Argumets
+function sum(n1,n2){
+    console.log(n1+n2);
+}
+
+sum(10,20)
+// sum(10,20,30) // Not accessible
+// sum(10,20,30,40) //Not accessible
+console.log("---------------");
+
+// For access Multiple Arguments we have "arguments" key word before ES6 "Rest Operator"---
+function add(){
+    let sum = 0;
+
+    for(let i in arguments){
+        sum += arguments[i];
+        console.log(arguments); // It stores Data into objects;
+    }
+
+    console.log(sum);
+}
+
+add(20,30)
+add(20,30,40)
+add(20,30,40,50)
+
+// ------ Problem using "arguments" Keyword------
+
+// In this Below Condition the "arguments" keyword does not works properly;
+// To overcome this Below problem we use "Rest Operator" in ES6 ----
+// add('Sam',20,30) 
+// add('Sam',20,30,340)
+
+console.log("------- USING REST OPERATOR --------");
+
+// ------ USing Rest Operator --------
+function newSum(name,...args){ // "name" will be a separate variable and the "..args" will create an array;
+   console.log(name);
+   
+   let sum = 0;
+//    for(let i in args){
+//        sum += args[i];
+//     }
+
+        args.forEach((ele)=>{
+          return sum += ele;
+       })
+
+
+    console.log("The sum is -> " + sum);
+
+    console.log(args);
+}
+
+newSum("Sam",20,40);
+newSum("Tom",20,40,60);
+newSum("Anna",20,40,60,80);
+
+console.log("================ Example ========================");
+//-----------------------
+function userInfo(name,add,course,...marks){
+console.log("User Name  -> ", name);
+console.log("User Address -> ", add);
+console.log("User Course -> ", course);
+
+   let sum = 0;
+  marks.forEach ((ele) =>{
+      sum += ele;
+    //   console.log(ele);
+  })
+
+  console.log("Avg Marks =>> " , Math.round(sum / marks.length));
+
+  console.log("\n");
+}
+
+userInfo("Sam","Dhamua","B.Tech",30,40,50,90);
+userInfo("Tom","Sealdha","MCA",70,80,60,90);

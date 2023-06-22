@@ -1,0 +1,82 @@
+//^ ==================== SPREAD OPERATOR =====================
+// * ==> Spread Oparetor works on method Call;
+// * Spread Oparetor takes array and create  single values;
+// * Spread Opt takes array and convert into diffrent Arguments;
+
+//* Spread Opt specially Works on Array;
+
+// ** General use case structure ---
+function fn_name(name ,...args){ // ! This is Rest Opt -> Use on Function Declearation
+
+}
+let arr = [10,20,30];
+fn_name('Yahoo',...arr); // ! This is Spread Opt -> Use on Function Call;
+
+
+// -------------Examples OF Spread Opt -------------------
+// ------------- -------------------
+console.log("----------------- Examples OF Spread Opt --------------");
+console.log("\n <-------------- Use of Example - 1 --------------> ");
+
+function sum(name,...args){
+    let sum = 0
+    args.forEach(ele =>{
+        sum += ele
+    });
+  console.log("The Name is => " , name);
+  console.log("The Avg Marks is  => " ,sum)
+
+}
+
+const aray = [50,80,60];
+sum("Sam",...aray);
+
+
+console.log("\n <-------------- Use of Example - 2 --------------> ");
+var array_1 = [10,20,30,50]; // This is main array;
+console.log(array_1);
+console.log(...array_1);
+console.log("Cloning of Main Array => ", [...array_1]);  // This is cloning the main array;
+
+// Here if we change array_1 then array_2 will be effected;
+var array_2 = array_1; // Copying array_1 to array_2;
+array_1.push(100) // Adding new value in array_1;
+console.log(array_2);
+
+// To prevent this upper problem we can use Spread Opt--- Example Below;
+console.log("------Solving problem using Spread Opt---------");
+var arr_1 = [10,20,30];
+var arr_2 = [...arr_1]; 
+arr_1.push(50);
+console.log("arr_1 => ", arr_1);
+console.log("arr_2 ==>" ,arr_2);
+
+
+
+console.log("\n <-------------- Use of Example - 3 --------------> ");
+// Spread Opt returns new Array and Object does't effect main array or Objects;
+console.log("-------Concating Two array -------");
+var ar_1 = [10,20,30];
+var ar_2 = [50,60];
+console.log("Old method to Concat using concat() method => ", ar_1.concat(ar_2)); // Concate Method Return new array;
+console.log("Concat Using Spread Opt => ", [...ar_1,...ar_2]);
+console.log("Concat Using Spread Opt => ", [5,...ar_1,...ar_2,19]);
+console.log("Concat Using Spread Opt => ", [5,...ar_1,45,...ar_2,19]);
+
+
+
+console.log("--------- Concat on Object --------");
+
+var obj_1 = {
+  name:"Sam"
+}
+
+var obj_2 = {
+  roll:10
+}
+
+console.log("Concat the object using Spread Opt => " , {...obj_1,...obj_2});
+console.log("Concat the object using Spread Opt => " , {id:1,...obj_1,...obj_2,add:"Kolkata"});
+
+
+

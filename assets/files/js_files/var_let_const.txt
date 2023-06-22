@@ -1,0 +1,38 @@
+var a = "Sam";
+var a = "Peter"; // Redeclear Possible
+a = "Anna";  // Reassign Possible
+console.log(a);
+
+function nameF (){
+    a = "Iron man";
+}
+nameF()
+console.log(a); // a Global Scope 
+
+
+console.log("-------------------------------------------");
+let b = "Tom";
+// let b = "Sital"// Not Redeclear Possible;
+b = "Louis" // Reassign Possible;
+console.log(b);
+
+function nameF2(){
+    let c  = "Kola"
+}
+//console.log(c); // c is Block Scope
+nameF2()
+
+
+console.log("-------------------------------------------");
+const d = "Letos";
+// const d = "Fultoss"; // Redeclear Not Possible;
+// d = "Lactos"; // d Reassign Not Possible;
+console.log(d);
+
+function nameF3(){
+    //const  f = "Killar";
+}
+//console.log(f);// It is also Block Scope
+nameF3()
+
+

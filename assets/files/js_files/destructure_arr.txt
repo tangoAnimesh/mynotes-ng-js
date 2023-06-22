@@ -1,0 +1,106 @@
+// ^ =================== DESTRUCTURING ARRAY =========================
+// * Array Destructuring Concept came on JavaScript ES6 Version ------------
+
+// ^--> Before Es6 If we want to assign each array element into Each Diffrent variable that's how we do it in below -------->>
+// ^ ----> Before Es6 Array Destructuring Process ------
+let user = ["Yahoo Baba",25];
+// & Assigning Array Element to Diffrent Variable--
+let name = user[0];
+let age  = user[1];
+
+// & After Es6 We can Assign Array element to the variable Like this , This Process is called Destructuring Array----
+
+let newUser = ["Sam",12,"Delhi"];
+let [usr_name , user_age,user_add] = newUser;
+console.log(usr_name);
+console.log(user_age);
+console.log(user_add);
+
+console.log("--------------");
+
+let user_2 =  [ , ,"Delhi"];
+let[nm,ag,add] = user_2
+console.log(nm);
+console.log(ag);
+console.log(add);
+
+console.log("--------------");
+
+let newUser_2 = ["Sam",12,];
+let [nam,ages,addr] = newUser_2;
+console.log(nam);
+console.log(ages);
+console.log(addr);
+
+console.log("--------------");
+
+
+
+// !! Assigning Default value ----
+let emp = ["Tom",22,"Kolkata"];
+// Assigning Default value to any variable; 
+// If in emp array age field blank then default value will print; which is 20;
+// otherwise the array value will print; which is 22;
+let [em_nm,em_age = 20,em_add] = emp; 
+console.log(em_age);
+
+console.log("--------------");
+
+
+// !! Array Destructuring on Nested Array----------
+let std = ["Peter", 12, "Chennei",["Male",25000]];
+let [st_nm,st_age,st_add,[st_gender,st_sal]] = std;
+
+console.log(st_nm);
+console.log(st_age);
+console.log(st_add);
+console.log(st_gender);
+console.log(st_sal);
+
+console.log("--------------");
+
+// ** Now Using Rest Opt -----------
+let arr = ["Monday","TuesDay","WedDay",1,2,3,5];
+let [day_1,day_2,day_3,...numbers] = arr;
+console.log(day_1,); 
+console.log(numbers); 
+
+
+console.log("--------------");
+
+//!! Using Destructuring Function --------
+
+function hero([name,age,city]){
+    console.log(name);
+    console.log(age);
+    console.log(city);
+}
+
+hero(["Iron",21,"NY"]);
+
+console.log("--------------");
+
+//!! Using Destructuring Function Return Array --------
+function hero_2(){
+    return ["Hulk",10,"Mexico"];
+}
+
+let [hero_nm,hero_ag,hero_add] = hero_2();
+console.log(hero_nm);
+console.log(hero_ag);
+console.log(hero_add);
+
+console.log("--------------");
+
+// * ----Using Normal way  in Function accept array and print element and return array ----
+let usr = ["batman",21,"Gouthm"];
+
+function heroS(arr){
+ arr.forEach(element => {
+    console.log(element);
+ });
+
+ return arr;
+}
+
+console.log(heroS(usr));

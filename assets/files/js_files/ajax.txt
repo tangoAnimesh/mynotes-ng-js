@@ -1,0 +1,80 @@
+// ^ =======> AJAX => [Asynchronous Javascript and XML] -> Ajax is technique for creating fast and dynamic web pages;
+// Using This AJAX we can load content from the server in effecient way;
+
+// XMLHttpRequest get response with 3 type Data format -> Text , XML , JSON;
+// There are 5 steps when we use XMLHttpRequest -> All together Called readyState;
+// code 0 > request not initilize;
+// code 1 > server connection established;
+// code 2 > request received;
+// code 3 > processing request;
+// code 4 > request finished and response is ready;
+
+
+// ===========  Syntax ============
+/*
+var xHttp = new XMLHttpRequest();
+xHttp.open("HTTP method","File Name/path/api_url",Asynchronous true/false);
+keep Async mode -> true;
+Asynchronous -> "true" means other task will not block keep running parallelly; 
+Synchronous  -> "false" means other task will block until current task is not completed;
+xHttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+        document.body.innerHTML = this.responseText
+    }
+}
+xHttp.send();
+*/
+
+
+// XHR -> XML HTTP REQUEST;
+
+//-----------------------  Reading Txt file from locallay -------------------------------------
+
+
+
+
+function getTxtData() {
+    const xHttp = new XMLHttpRequest();
+    
+    xHttp.open('GET', "./read.txt",true);
+
+    xHttp.onreadystatechange = () => {
+        if(xHttp.readyState == 4 && xHttp.status == 200){
+            console.log(xHttp.responseText);
+            document.getElementById("show_text").innerHTML = xHttp.responseText
+        }
+    }
+    xHttp.send();
+    console.log("Clicked");
+
+}
+
+document.getElementById("btn-text").addEventListener("click",getTxtData);
+
+
+//----------------------Reading Api From Server --------------------------------------
+
+
+function getJsonDaTa(){
+    const xHttp = new XMLHttpRequest();
+
+    xHttp.open('GET',"https://jsonplaceholder.typicode.com/users",true);
+    xHttp.onreadystatechange = () =>{
+        if(xHttp.readyState == 4 && xHttp.status == 200){
+            console.log(JSON.parse(xHttp.responseText));
+            let dataArr = JSON.parse(xHttp.responseText);
+
+            let content = '';
+            dataArr.forEach(element => {
+                content += `<li>${element.name} || ${element.email}</li>`
+            });
+
+            console.log(content);
+
+            document.getElementById("show_Json").innerHTML = `<ol>${content}</ol>`
+        }
+    }
+    xHttp.send();
+}
+
+document.getElementById("btn-json").addEventListener("click",getJsonDaTa);
